@@ -38,7 +38,13 @@ We used virtual environment. Create an environment using packages in requirement
    ```bash
    pip install -r requirements.txt
   ```
+## Pre-Trained Models
+We have pre-trained weights for each of the network in the following directory.
+   ```bash
+   cd model_checkpoints
+```
 ## Train
+Please use following scripts for training from scratch to reproduce our results.
 ```bash
 cd src
 python baseline_train.py
@@ -46,6 +52,7 @@ python PIDA_train.py
 python WGDA_train.py
 ```
 ## Test
+Please use following scripts to test the pre-trained network using weights in model_checkpoints.
 ```bash
 cd src
 python baseline_test.py
