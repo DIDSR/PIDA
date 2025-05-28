@@ -76,7 +76,7 @@ Mehdi Farhangi
 Nicholas Petrick
 ```
 # Authors Contribution
-Moktari Mostofa authored the package, developed the pipeline and its functions, wrote the documentation, and drafted the article. Jacob McIntosh, and Qian Cao assisted in noise insertion augmentation of DICAugment library, which inspired to conduct this project. Berkman Sahiner and Nicholas Petrick assisted in designing the validation study. Mehdi Farhangi, and Nicholas Petrick supervised the project and contributed to the article drafting.
+Moktari Mostofa developed the pipeline and its functions, wrote the documentation, and drafted the article. Jacob McIntosh, and Qian Cao assisted in noise insertion augmentation of DICAugment library, which inspired to conduct this project. Berkman Sahiner and Nicholas Petrick assisted in designing the validation study. Mehdi Farhangi, and Nicholas Petrick supervised the project and contributed to the article drafting.
 
 # Acknowledgments
 We would like to express our gratitude to the developers of DICAugment [1](https://github.com/DIDSR/DICaugment) for their excellent work on the library, which served as the foundation for our PIDA.
