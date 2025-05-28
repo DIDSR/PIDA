@@ -36,19 +36,24 @@ PIDA/
    ```bash
    pip install -r requirements.txt
 2. cd src
-enable cuda (i.e., CUDA_VISIBLE_DEVICES=0)
-# Train
+### Train
+```bash
 python baseline_train.py
 python PIDA_train.py
 python WGDA_train.py
-# Test
+```
+### Test
+```bash
 python baseline_test.py
 python PIDA_test.py
 python WGDA_test.py
+```
 # Train & Test with Geometric Augmentation
+```bash
 python baseline_with_GA.py
 python PIDA_with_GA.py
 python WGDA_with_GA.py
+```
 
 
 
