@@ -9,4 +9,5 @@ training a neural network designed to reduce false positives in a lung nodule de
 algorithm. We evaluated the impact of the noise insertion training method by assessing
 lung nodule detection performance on low-dose CT scans.
 
-![Alt text for the image](images/cropped_nodules_2.png)
+<img src="images/cropped_nodules_2.png" alt="Alt text" width="400"/>
+
