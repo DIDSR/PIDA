@@ -17,6 +17,7 @@ lung nodule detection performance on low-dose CT scans.
 PIDA/
 ├── figures/                  # Visualizations and final result plots
 ├── annotations/              # Required for preprocessing nodules
+├── data_preprocessing/       # Python script for train-test csv files generation
 ├── src/                      # Core Python scripts for train and test
 │   ├── baseline_train.py     # Train CNN only on High Dose (HD) CT images of LIDC dataset
 │   ├── baseline_test.py      # Test trained baseline on HD, Low-Dose (LD), and Standard-Dose (SD) CT images
