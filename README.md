@@ -11,9 +11,9 @@ lung nodule detection performance on low-dose CT scans.
 </p>
 <p align="center"><em>Figure 1: Visualization of nodule candidate after our proposed physics-informed noise insertion technique. The top row shows a) a sample CT scan from LIDC-IDRI dataset, acquired at 400 mAs and reconstructed using a standard filter, and b) a cropped ROI, and the bottom row shows c) the cropped ROI without noise, d) with white-Gaussian noise, and e) with noise insertion based on our PIDA method. Images are shown with the same window level of -1000 to 400 HU.</em></p>
 
-```markdown
-#  Repository Structure
 
+##  Repository Structure
+```markdown
 PIDA/
 ├── figures/                  # Visualizations and final result plots
 ├── annotations/              # Required for preprocessing nodules
@@ -31,7 +31,7 @@ PIDA/
 ├── requirements.txt          # Required Python packages
 ├── README.md                 # Project documentation (this file)
 
+##  How to Run
 ```markdown
-#  How to Run
 Install the required Python packages:
 pip install -r requirements.txt
