@@ -67,9 +67,9 @@ Mehdi Farhangi
 Nicholas Petrick
 
 # Acknowledgments
-We would like to express our gratitude to the developers of DICAugment [Descriptive Link Text](https://github.com/DIDSR/DICaugment) for their excellent work on the library, which served as the foundation for our PIDA. We also thank the open-source community for their contributions and feedback.
+We would like to express our gratitude to the developers of DICAugment [1](https://github.com/DIDSR/DICaugment) for their excellent work on the library, which served as the foundation for our PIDA.
 
-
-
+# Reference
+[1] McIntosh, J., et al. "DICaugment: A Python Package for 3D Medical Imaging Augmentation." Journal of Open Source Software 9.95 (2024): 6120
 
 
