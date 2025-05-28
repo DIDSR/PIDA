@@ -5,6 +5,7 @@ kernels to simulate the effects of various dose exposures. In this approach, the
 lower dose exposure. We applied PIDA in training a neural network designed to reduce false positives in a lung nodule detection algorithm. We evaluated the impact of the noise insertion training method by assessing
 lung nodule detection performance on low-dose CT scans.
 
+## Visualization of Nodule after PIDA
 <p align="center">
   <img src="images/cropped_nodules_2.png" alt="Example Image" width="600"/>
 </p>
