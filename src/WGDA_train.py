@@ -46,7 +46,7 @@ params = {
 }
 
 #log file create
-LOGS_dir_prefix = "/gpfs_projects/moktari.mostofa/Physics_Informed_Data_Aug/model_checkpoints"
+LOGS_dir_prefix = "../model_checkpoints"
 LOGS_path = LOGS_dir_prefix +'/' + params["model"]
 if not os.path.exists(LOGS_path):
     os.makedirs(LOGS_path)
@@ -95,7 +95,7 @@ print('saved train configuration!')
 shuffle_dataset = True
 
 # load data
-root_dir = "/gpfs_projects/moktari.mostofa/Fall_2023/LUNA2016_challenge/LUNA16_Classification/Spring_2024/Train_DICAugmentation/data/49x49x17"
+root_dir = "../data/49x49x17"
 train_data = pd.read_csv(root_dir + "/train_csv_files/HU_data/high_dose_unnorm_train.csv")
 
 

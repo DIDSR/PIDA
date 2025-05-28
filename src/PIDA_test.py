@@ -91,7 +91,7 @@ write_submission_file(CandidateFile,submission_csv,test_fold9_score)
 ##### Standard Evaluation #####
 annotations_filename          = "../annotations/annotations.csv"
 annotations_excluded_filename = "../annotations/annotations_excluded.csv"
-seriesuids_filename           = "../annotations/seriesuids.csv"
+seriesuids_filename           = "..annotations/seriesuids.csv"
 results_filename              = submission_csv
 outputDir                     = LOGS_new_path + '/' + "ld_Evaluation"
 
@@ -173,7 +173,7 @@ print("Finished testing on standard dose patients!")
 
 
 # Test the trained model on High Dose Patients
-hd_data = pd.read_csv('/gpfs_projects/moktari.mostofa/Fall_2023/LUNA2016_challenge/LUNA16_Classification/Spring_2024/Train_DICAugmentation/data/49x49x17/test_csv_files/HU_data/high_dose_unnorm_test.csv')
+hd_data = pd.read_csv('../high_dose_unnorm_test.csv')
 
 # ELIF 3-D DATASET
 hd_test_dataset = LUNA_Dataset_3D(hd_data)
@@ -186,7 +186,7 @@ recall_test3, acc_test3, conf_matrix3,predict_labels3,probability_vector3 = pred
 
 
 # write test_csv2 with probability scores
-test_csv3 = "/gpfs_projects/moktari.mostofa/Fall_2023/LUNA2016_challenge/LUNA16_Classification/Spring_2024/Train_DICAugmentation/data/49x49x17/test_csv_files/HU_data/high_dose_unnorm_test.csv"
+test_csv3 = "../high_dose_unnorm_test.csv"
 score_path= LOGS_new_path + '/' + "hd_test_csv_files"
 if not os.path.exists(score_path):
     os.makedirs(score_path)
@@ -204,7 +204,7 @@ write_submission_file(CandidateFile,submission_csv3,test_score3)
 results_filename3              = submission_csv3
 outputDir3                     = LOGS_new_path + '/' + "hd_Evaluation"
 
-hd_dose_test_patient_dir="/home/moktari.mostofa/Moktari/Luna_Scans/3D_Augmentation_Train/spring_2024/scans/high_dose_test_scans"
+hd_dose_test_patient_dir="../scans/high_dose_test_scans"
 seriesUIDs_HD = []
 for subset in os.listdir(hd_dose_test_patient_dir):
     subset_path = os.path.join(hd_dose_test_patient_dir,subset)

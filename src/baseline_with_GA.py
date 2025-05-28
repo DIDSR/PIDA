@@ -53,7 +53,7 @@ params = {
 }
 
 #log file create
-LOGS_dir_prefix = "/gpfs_projects/moktari.mostofa/Physics_Informed_Data_Aug/model_checkpoints"
+LOGS_dir_prefix = "../model_checkpoints"
 LOGS_path = LOGS_dir_prefix +'/' + params["model"]
 if not os.path.exists(LOGS_path):
     os.makedirs(LOGS_path)
@@ -119,7 +119,7 @@ print('saved train configuration!')
 shuffle_dataset = True
 
 # load data
-root_dir = "/gpfs_projects/moktari.mostofa/Fall_2023/LUNA2016_challenge/LUNA16_Classification/Spring_2024/Train_DICAugmentation/data/49x49x17"
+root_dir = "../data/49x49x17"
 train_data = pd.read_csv(root_dir + "/train_csv_files/HU_data/train_fold0_8_unnorm.csv")
 
 # IF 3-D DATASET
@@ -155,13 +155,6 @@ torch.save({
 print('model saved')
 
 
-# Test the trained model on low dose patients
-data = pd.read_csv('/gpfs_projects/moktari.mostofa/Fall_2023/LUNA2016_challenge/LUNA16_Classification/Spring_2024/Train_DICAugmentation/data/49x49x17/test_csv_files/HU_data/test_fold9.csv')
-
-# ELIF 3-D DATASET
-test_dataset = LUNA_Dataset_3D_scaled(data)
-test_loader = utils.DataLoader(test_dataset, batch_size=1, shuffle=False)
-
 # MODELS
 
 model = CNNT_3D(Dropout=params["Dropout"],dropout_conv=params["dropout_conv"],dropout_fc=params["dropout_fc"])
@@ -178,12 +171,12 @@ model.to(device)
 
 
 ## write submission csv file 
-CandidateFile = "/gpfs_projects/moktari.mostofa/Physics_Informed_Data_Aug/annotations/candidates_V2_kernel_excluded.csv"
+CandidateFile = "../annotations/candidates_V2_kernel_excluded.csv"
 
 ##### Standard Evaluation #####
-annotations_filename          = "/gpfs_projects/moktari.mostofa/Physics_Informed_Data_Aug/annotations/annotations_kernel_excluded.csv"
-annotations_excluded_filename = "/gpfs_projects/moktari.mostofa/Physics_Informed_Data_Aug/annotations/annotations_excluded.csv"
-seriesuids_filename           = "/gpfs_projects/moktari.mostofa/Physics_Informed_Data_Aug/annotations/seriesuids.csv"
+annotations_filename          = "../annotations/annotations_kernel_excluded.csv"
+annotations_excluded_filename = "../annotations/annotations_excluded.csv"
+seriesuids_filename           = "../annotations/seriesuids.csv"
 
 
 #Evaluation Settings
@@ -193,7 +186,7 @@ bOtherNodulesAsIrrelevant = True
 bConfidence = 0.95
 
 # Test the trained model on Low Dose Patients
-ld_data = pd.read_csv('/gpfs_projects/moktari.mostofa/Fall_2023/LUNA2016_challenge/LUNA16_Classification/Spring_2024/Train_DICAugmentation/data/49x49x17/test_csv_files/HU_data/test_fold9_low_dose.csv')
+ld_data = pd.read_csv('../test_fold9_low_dose.csv')
 
 # ELIF 3-D DATASET
 ld_test_dataset = LUNA_Dataset_3D_scaled(ld_data)
@@ -206,7 +199,7 @@ recall_test, acc_test, conf_matrix,predict_labels,probability_vector = predict(m
 
 
 ## write test_csv2 with probability scores
-test_csv = "/gpfs_projects/moktari.mostofa/Fall_2023/LUNA2016_challenge/LUNA16_Classification/Spring_2024/Train_DICAugmentation/data/49x49x17/test_csv_files/HU_data/test_fold9_low_dose.csv"
+test_csv = "../test_fold9_low_dose.csv"
 score_path= LOGS_path + '/' + "ld_test_csv_files"
 if not os.path.exists(score_path):
     os.makedirs(score_path)
@@ -224,7 +217,7 @@ write_submission_file(CandidateFile,submission_csv,test_score)
 results_filename              = submission_csv
 outputDir                     = LOGS_path + '/' + "ld_Evaluation"
 
-subset_path="/home/moktari.mostofa/Moktari/Luna_Scans/3D_Augmentation_Train/spring_2024/scans_June/low_dose_fold9/subset9"
+subset_path="../low_dose_fold9/subset9"
 seriesUIDs_LD = []
 for id in os.listdir(subset_path):
     if id.endswith('.mhd'):
@@ -243,7 +236,7 @@ print("Finished testing on low dose patients!")
 
 
 # Test the trained model on Standard Dose Patients
-sd_data = pd.read_csv('/gpfs_projects/moktari.mostofa/Fall_2023/LUNA2016_challenge/LUNA16_Classification/Spring_2024/Train_DICAugmentation/data/49x49x17/test_csv_files/HU_data/test_fold9_standard_dose.csv')
+sd_data = pd.read_csv('../test_fold9_standard_dose.csv')
 
 # ELIF 3-D DATASET
 sd_test_dataset = LUNA_Dataset_3D_scaled(sd_data)
@@ -255,7 +248,7 @@ sd_dataloaders_length = len(sd_test_loader)
 recall_test2, acc_test2, conf_matrix2,predict_labels2,probability_vector2 = predict2(model, sd_dataloaders_dict,sd_dataloaders_length)
 
 ## write test_csv2 with probability scores
-test_csv2 = "/gpfs_projects/moktari.mostofa/Fall_2023/LUNA2016_challenge/LUNA16_Classification/Spring_2024/Train_DICAugmentation/data/49x49x17/test_csv_files/HU_data/test_fold9_standard_dose.csv"
+test_csv2 = "../test_fold9_standard_dose.csv"
 score_path= LOGS_path + '/' + "sd_test_csv_files"
 if not os.path.exists(score_path):
     os.makedirs(score_path)
@@ -273,7 +266,7 @@ write_submission_file(CandidateFile,submission_csv2,test_score2)
 results_filename2              = submission_csv2
 outputDir2                     = LOGS_path + '/' + "sd_Evaluation"
 
-subset_path="/home/moktari.mostofa/Moktari/Luna_Scans/3D_Augmentation_Train/spring_2024/scans_June/standard_dose_fold9/subset9"
+subset_path="../standard_dose_fold9/subset9"
 seriesUIDs_SD = []
 for id in os.listdir(subset_path):
     if id.endswith('.mhd'):
@@ -292,7 +285,7 @@ print("Finished testing on standard dose patients!")
 
 
 # Test the trained model on High Dose Patients
-hd_data = pd.read_csv('/gpfs_projects/moktari.mostofa/Fall_2023/LUNA2016_challenge/LUNA16_Classification/Spring_2024/Train_DICAugmentation/data/49x49x17/test_csv_files/HU_data/test_fold9_high_dose.csv')
+hd_data = pd.read_csv('../test_fold9_high_dose.csv')
 
 # ELIF 3-D DATASET
 hd_test_dataset = LUNA_Dataset_3D_scaled(hd_data)
@@ -305,7 +298,7 @@ recall_test3, acc_test3, conf_matrix3,predict_labels3,probability_vector3 = pred
 
 
 ## write test_csv2 with probability scores
-test_csv3 = "/gpfs_projects/moktari.mostofa/Fall_2023/LUNA2016_challenge/LUNA16_Classification/Spring_2024/Train_DICAugmentation/data/49x49x17/test_csv_files/HU_data/test_fold9_high_dose.csv"
+test_csv3 = "../test_fold9_high_dose.csv"
 score_path= LOGS_path + '/' + "hd_test_csv_files"
 if not os.path.exists(score_path):
     os.makedirs(score_path)
@@ -323,7 +316,7 @@ write_submission_file(CandidateFile,submission_csv3,test_score3)
 results_filename3              = submission_csv3
 outputDir3                     = LOGS_path + '/' + "hd_Evaluation"
 
-subset_path="/home/moktari.mostofa/Moktari/Luna_Scans/3D_Augmentation_Train/spring_2024/scans_June/high_dose_fold9/subset9"
+subset_path="../high_dose_fold9/subset9"
 seriesUIDs_HD = []
 for id in os.listdir(subset_path):
     if id.endswith('.mhd'):
