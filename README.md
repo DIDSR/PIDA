@@ -30,11 +30,5 @@ PIDA/
 ├── model_checkpoints/        # model checkpoints for each of the network mentioned as *_train.py file in src directory
 ├── requirements.txt          # Required Python packages
 ├── README.md                 # Project documentation (this file)
-cd .
 
-## 🧪 How to Run
-
-1. Install required Python packages:
-   ```bash
-   pip install -r requirements.txt
 
