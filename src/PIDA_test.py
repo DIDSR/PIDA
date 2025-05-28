@@ -36,10 +36,10 @@ params = {
 }
 
 ##log file create
-LOGS_dir_prefix = "/gpfs_projects/moktari.mostofa/Physics_Informed_Data_Aug/model_checkpoints"
+LOGS_dir_prefix = "../model_checkpoints"
 LOGS_path = LOGS_dir_prefix +'/' + params["model"]
 
-output_path = '/gpfs_projects/moktari.mostofa/Physics_Informed_Data_Aug/output'
+output_path = '../output'
 LOGS_new_path = output_path + '/' + 'PIDA_results'+ '/' + 'results_on_final_test_set'
 if not os.path.exists(LOGS_new_path):
     os.makedirs(LOGS_new_path)
@@ -60,7 +60,7 @@ model.load_state_dict(checkpoint['model_state_dict'])
 model.to(device)
 
 # Test the trained model on low dose patients
-data = pd.read_csv('/gpfs_projects/moktari.mostofa/Fall_2023/LUNA2016_challenge/LUNA16_Classification/Spring_2024/Train_DICAugmentation/data/49x49x17/final_test_files/HU_data/low_dose_test.csv')
+data = pd.read_csv('../low_dose_test.csv')
 
 # ELIF 3-D DATASET
 test_dataset = LUNA_Dataset_3D_scaled(data)
@@ -73,7 +73,7 @@ dataloaders_length = len(test_loader)
 recall_test, acc_test, conf_matrix,predict_labels,probability_vector = predict(model, dataloaders_dict,dataloaders_length)
 
 # write test_fold9 with probability scores
-test_fold9 = "/gpfs_projects/moktari.mostofa/Fall_2023/LUNA2016_challenge/LUNA16_Classification/Spring_2024/Train_DICAugmentation/data/49x49x17/final_test_files/HU_data/low_dose_test.csv"
+test_fold9 = "../low_dose_test.csv"
 score_path= LOGS_new_path + '/' + "ld_test_csv_files"
 if not os.path.exists(score_path):
     os.makedirs(score_path)
@@ -81,7 +81,7 @@ test_fold9_score = score_path + '/' + "test_score.csv"
 write_csv(probability_vector,test_fold9,test_fold9_score)
 
 ## write submission csv file 
-CandidateFile = "/gpfs_projects/moktari.mostofa/Physics_Informed_Data_Aug/annotations/candidatesFile.csv"
+CandidateFile = "../annotations/candidatesFile.csv"
 submission_path = LOGS_new_path + '/' + "ld_Evaluation" 
 if not os.path.exists(submission_path):
     os.makedirs(submission_path)    
@@ -89,13 +89,13 @@ submission_csv= submission_path + '/' + 'submission.csv'
 write_submission_file(CandidateFile,submission_csv,test_fold9_score)
 
 ##### Standard Evaluation #####
-annotations_filename          = "/gpfs_projects/moktari.mostofa/Physics_Informed_Data_Aug/annotations/annotations.csv"
-annotations_excluded_filename = "/gpfs_projects/moktari.mostofa/Physics_Informed_Data_Aug/annotations/annotations_excluded.csv"
-seriesuids_filename           = "/gpfs_projects/moktari.mostofa/Physics_Informed_Data_Aug/annotations/seriesuids.csv"
+annotations_filename          = "../annotations/annotations.csv"
+annotations_excluded_filename = "../annotations/annotations_excluded.csv"
+seriesuids_filename           = "../annotations/seriesuids.csv"
 results_filename              = submission_csv
 outputDir                     = LOGS_new_path + '/' + "ld_Evaluation"
 
-low_dose_test_patient_dir="/home/moktari.mostofa/Moktari/Luna_Scans/3D_Augmentation_Train/spring_2024/scans/LD_valid_test_scans"
+low_dose_test_patient_dir="../scans/LD_valid_test_scans"
 seriesUIDs_LD = []
 for subset in os.listdir(low_dose_test_patient_dir):
     subset_path = os.path.join(low_dose_test_patient_dir,subset)
@@ -121,7 +121,7 @@ evaluateCAD(seriesUIDs_LD, results_filename, outputDir, allNodules,
 print("Finished testing low dose patients!")
 
 # Test the trained model on standard Dose Patients
-sd_data = pd.read_csv('/gpfs_projects/moktari.mostofa/Fall_2023/LUNA2016_challenge/LUNA16_Classification/Spring_2024/Train_DICAugmentation/data/49x49x17/final_test_files/HU_data/standard_dose_test.csv')
+sd_data = pd.read_csv('../standard_dose_test.csv')
 
 # ELIF 3-D DATASET
 sd_test_dataset = LUNA_Dataset_3D_scaled(sd_data)
@@ -134,7 +134,7 @@ recall_test2, acc_test2, conf_matrix2,predict_labels2,probability_vector2 = pred
 
 
 # write test_csv2 with probability scores
-test_csv2 = "/gpfs_projects/moktari.mostofa/Fall_2023/LUNA2016_challenge/LUNA16_Classification/Spring_2024/Train_DICAugmentation/data/49x49x17/final_test_files/HU_data/standard_dose_test.csv"
+test_csv2 = "../standard_dose_test.csv"
 score_path= LOGS_new_path + '/' + "sd_test_csv_files"
 if not os.path.exists(score_path):
     os.makedirs(score_path)
@@ -152,7 +152,7 @@ write_submission_file(CandidateFile,submission_csv2,test_score2)
 results_filename2              = submission_csv2
 outputDir2                     = LOGS_new_path + '/' + "sd_Evaluation"
 
-standard_dose_test_patient_dir="/home/moktari.mostofa/Moktari/Luna_Scans/3D_Augmentation_Train/spring_2024/scans/SD_valid_test_scans"
+standard_dose_test_patient_dir="../scans/SD_valid_test_scans"
 seriesUIDs_SD = []
 for subset in os.listdir(standard_dose_test_patient_dir):
     subset_path = os.path.join(standard_dose_test_patient_dir,subset)
