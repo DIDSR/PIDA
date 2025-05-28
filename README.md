@@ -8,3 +8,5 @@ PIDA’s applicability in improving the generalizability of CNNs, we applied PID
 training a neural network designed to reduce false positives in a lung nodule detection
 algorithm. We evaluated the impact of the noise insertion training method by assessing
 lung nodule detection performance on low-dose CT scans.
+
+![Alt text for the image](images/cropped_nodules_2.png)
