@@ -32,6 +32,7 @@ PIDA/
 ├── README.md                 # Project documentation (this file)
 ```
 ## How to Run
+We used virtual environment. Create an environment using packages in requirements.txt file.
  Install required Python packages:
    ```bash
    pip install -r requirements.txt
