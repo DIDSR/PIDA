@@ -1,7 +1,7 @@
 ## 🔍 Physics-Informed Data Augmentation (PIDA) to simulate low dose CT scans: Application to Lung Nodule Detection
 This repository contains the code for **Physics-Informed Data Augmentation to simulate low dose CT scans: Application to Lung Nodule Detection**.
 
-Our proposed Physics-Informed Data Augmentation (PIDA) method leverages the mAs and Noise Power Spectrum (NPS) profiles of various CT reconstruction
+Our proposed **Physics-Informed Data Augmentation (PIDA)** method leverages the mAs and Noise Power Spectrum (NPS) profiles of various CT reconstruction
 kernels to simulate the effects of various dose exposures. In this approach, the NPS
 of a higher dose CT scan is used to generate correlated noise, which is then stochastically inserted into the training data. This simulates the noise characteristics of the
 lower dose exposure and enhances variability within the training set. To demonstrate
