@@ -1,0 +1,1 @@
+{"model": "6conv_2fc_drop_baseline_exp2", "lr": 0.0001, "batch_size": 64, "epochs": 40, "optimizer": "Adam", "criterion": "FocalLoss", "Dropout": "yes", "dropout_conv": 0.3, "dropout_fc": 0.9, "gamma": 2, "alpha": 16, "p": 1}
