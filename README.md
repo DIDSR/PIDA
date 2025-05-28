@@ -36,19 +36,19 @@ PIDA/
    ```bash
    pip install -r requirements.txt
 2. cd src
-### Train
+## Train
 ```bash
 python baseline_train.py
 python PIDA_train.py
 python WGDA_train.py
 ```
-### Test
+## Test
 ```bash
 python baseline_test.py
 python PIDA_test.py
 python WGDA_test.py
 ```
-# Train & Test with Geometric Augmentation
+## Train & Test with Geometric Augmentation
 ```bash
 python baseline_with_GA.py
 python PIDA_with_GA.py
