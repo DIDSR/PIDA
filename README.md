@@ -31,5 +31,9 @@ PIDA/
 ├── README.md                 # Project documentation (this file)
 
 
-🚀 How to Run
+
+## How to Run
+
+Install the required Python packages:
+```bash
 pip install -r requirements.txt
