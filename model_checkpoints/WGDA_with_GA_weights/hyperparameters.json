@@ -1,0 +1,1 @@
+{"model": "6conv_2fc_drop_gaussian_train_fold0_8_GA", "lr": 0.0001, "batch_size": 64, "epochs": 40, "optimizer": "Adam", "criterion": "FocalLoss", "Dropout": "yes", "dropout_conv": 0.3, "dropout_fc": 0.9, "noise_var_range": [1, 25], "gamma": 2, "alpha": 16, "p": 1}
