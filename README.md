@@ -59,12 +59,14 @@ python PIDA_with_GA.py
 python WGDA_with_GA.py
 ```
 # Authors
+```bash
 Moktari Mostofa
 Jacob McIntosh
 Qian Cao
 Berkman Sahiner
 Mehdi Farhangi
 Nicholas Petrick
+```
 
 # Acknowledgments
 We would like to express our gratitude to the developers of DICAugment [1](https://github.com/DIDSR/DICaugment) for their excellent work on the library, which served as the foundation for our PIDA.
