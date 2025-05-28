@@ -13,7 +13,6 @@ lung nodule detection performance on low-dose CT scans.
 
 ```markdown
 ##  Repository Structure
-``` bash
 PIDA/
 ├── figures/                  # Visualizations and final result plots
 ├── annotations/              # Required for preprocessing nodules
@@ -31,9 +30,8 @@ PIDA/
 ├── requirements.txt          # Required Python packages
 ├── README.md                 # Project documentation (this file)
 
-
+```markdown
 ## How to Run
-
 Install the required Python packages:
 ```bash
 pip install -r requirements.txt
