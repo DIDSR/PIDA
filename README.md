@@ -12,7 +12,7 @@ Physics-Informed Data Augmentation (PIDA) is a method developed to simulate real
 
 where 𝑢 and 𝑣 are the spatial frequency coordinates. To simulate noise in the spatial domain, PIDA generates a noise field by randomizing phase information and applying an inverse Fourier transform:\
 <p align="center">
-  <img src="figures/fourier.png" alt="Example Image" width="300"/>
+  <img src="figures/fourier.png" alt="Example Image" width="400"/>
 </p>
 where 
 sqrt(NPS(u, v)) is the amplitude derived from the measured NPS,\
