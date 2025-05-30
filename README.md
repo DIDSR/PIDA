@@ -32,6 +32,19 @@ PIDA/
 ├── requirements.txt          # Required Python packages
 ├── README.md                 # Project documentation (this file)
 ```
+## Data Source
+
+This project uses annotation files in PIDA/annotations from the [LUNA16 challenge dataset](https://luna16.grand-challenge.org/Data/).
+
+The LUNA16 dataset aggregates pulmonary nodule annotations from the publicly available LIDC-IDRI database. Access to the LUNA16 dataset is subject to its own terms and conditions. Users must obtain the data independently and adhere to the dataset's usage policies as specified by the dataset owners.
+
+## License for Dataset
+
+The LUNA16 dataset used in this project is distributed under its own terms of use. For more information, please refer to:
+[https://luna16.grand-challenge.org/Data/](https://luna16.grand-challenge.org/Data/)
+
+Please ensure compliance with the licensing and usage policies before using or distributing any derivative works based on the dataset.
+
 ## How to Run
 We used virtual environment. Create an environment using packages in requirements.txt file.
 This code was tested on **Python 3.11.4**. 
