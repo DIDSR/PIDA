@@ -86,7 +86,7 @@ shuffle_dataset = True
 
 # load data
 root_dir = "../data/49x49x17"
-train_data = pd.read_csv(root_dir + "/train_csv_files/high_dose_unnorm_train.csv")
+train_data = pd.read_csv(root_dir + "/train_csv_files/high_dose_train.csv")
 
 # IF 3-D DATASET
 train_dataset = LUNA_3D_baseline(train_data)
