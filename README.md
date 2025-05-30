@@ -14,11 +14,8 @@ where 𝑢 and 𝑣 are the spatial frequency coordinates. To simulate noise in 
 <p align="center">
   <img src="figures/fourier.png" alt="Example Image" width="400"/>
 </p>
-where 
-sqrt(NPS(u, v)) is the amplitude derived from the measured NPS,
-
+where sqrt(NPS(u, v)) is the amplitude derived from the measured NPS,
 φ(u, v) are random phase shifts uniformly sampled from [0, 2π],
-
 F⁻¹ denotes the inverse Fourier transform.
 
 This approach ensures that the noise introduced into each training sample retains the same frequency characteristics (texture and granularity) as clinically acquired low-dose CT images.
