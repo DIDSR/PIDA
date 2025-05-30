@@ -4,7 +4,7 @@ Our proposed **Physics-Informed Data Augmentation (PIDA)** method leverages the 
 kernels to simulate the effects of various dose exposures. In this approach, the NPS of a higher dose CT scan is used to generate correlated noise, which is then stochastically inserted into the training data to simulate the noise characteristics of the lower dose exposure. We applied PIDA in training a neural network designed to reduce false positives in a lung nodule detection algorithm. We evaluated the impact of the noise insertion training method by assessing
 lung nodule detection performance on low-dose CT scans.
 
-PIDA is a method developed to simulate realistic low-dose CT noise based on imaging physics principles. Unlike conventional augmentation strategies that add uncorrelated Gaussian noise, PIDA injects spatially correlated noise into CT images to closely mimic the noise texture seen in clinical low-dose acquisitions. PIDA utilizes Noise Power Spectrum (NPS) profiles extracted from CT DICOM metadata to model noise accurately. Assuming radial symmetry, the two-dimensional NPS is calculated as:
+PIDA is a method developed to simulate realistic low-dose CT noise based on imaging physics principles. Unlike conventional augmentation strategies that add uncorrelated Gaussian noise, PIDA injects spatially correlated noise into CT images to closely mimic the noise texture seen in clinical low-dose acquisitions. PIDA utilizes NPS profiles extracted from CT DICOM metadata to model noise. Assuming radial symmetry, the two-dimensional NPS is calculated as:
 <p align="center">
   <img src="figures/radial.png" alt="Example Image" width="200"/>
 </p>
