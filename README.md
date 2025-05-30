@@ -25,7 +25,15 @@ phases. During training, PIDA stochastically injects this correlated noise into 
 </p>
 <p align="center"><em>Figure 1: Visualization of nodule candidate after our proposed physics-informed noise insertion technique. The top row shows a) a sample CT scan from LIDC-IDRI dataset, acquired at 400 mAs and reconstructed using a standard filter, and b) a cropped ROI, and the bottom row shows c) the cropped ROI without noise, d) with white-Gaussian noise, and e) with noise insertion based on our PIDA method. Images are shown with the same window level of -1000 to 400 HU.</em></p>
 
-## Functions for PIDA
+## Function/Dataset Class for PIDA
+This repository includes the LUNA_3D_DICaugmentation class, a custom PyTorch Dataset designed for 3D lung nodule patches extracted from CT scans. It integrates PIDA by simulating realistic low-dose noise characteristics.
+### key Features
+Loads 3D lung patches (49×49×17) from .npy files.
+Parses CT metadata such as PixelSpacing, ConvolutionKernel, and XRayTubeCurrent from the dataset annotations.
+Randomly adjusts the ConvolutionKernel to introduce variability across similar kernel families during training.
+Applies NPS-based noise augmentation using the DICaugment library, injecting spatially correlated noise consistent with the CT scan’s imaging physics.
+Normalizes the augmented 3D volume before returning the sample.
+
 ```bash
 class LUNA_3D_DICaugmentation(Dataset):
     def __init__(self, data,transform=None):
