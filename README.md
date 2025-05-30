@@ -25,6 +25,62 @@ phases. During training, PIDA stochastically injects this correlated noise into 
 </p>
 <p align="center"><em>Figure 1: Visualization of nodule candidate after our proposed physics-informed noise insertion technique. The top row shows a) a sample CT scan from LIDC-IDRI dataset, acquired at 400 mAs and reconstructed using a standard filter, and b) a cropped ROI, and the bottom row shows c) the cropped ROI without noise, d) with white-Gaussian noise, and e) with noise insertion based on our PIDA method. Images are shown with the same window level of -1000 to 400 HU.</em></p>
 
+## Functions for PIDA
+```bash
+class LUNA_3D_DICaugmentation(Dataset):
+    def __init__(self, data,transform=None):
+        self.data = data
+        self.transform = transform
+        
+    def __getitem__(self, index):
+        image = self.data.iloc[index]
+        y_class = int(image['class'])
+        lung_img = np.load(image['filename'], allow_pickle=True)
+        lung_img = np.float64(lung_img)
+        string_value = image['PixelSpacing']
+        values_as_strings = ast.literal_eval(string_value)
+
+        # Convert each string element to a float
+        float_values = [float(val) for val in values_as_strings]
+
+        # If you want to access individual values
+        f1 = float_values[0]
+        f2 = float_values[1]
+
+        dicom = {
+                "PixelSpacing" :  (f1,f2),
+                "RescaleIntercept" : 0,
+                "RescaleSlope" : 1.0,
+                "ConvolutionKernel" : image['ConvolutionKernel'],
+                "XRayTubeCurrent" : image['XRayTubeCurrent']
+                }
+
+        if self.transform is not None:
+            kernel = dicom["ConvolutionKernel"]
+            if kernel == 'STANDARD':
+                dicom["ConvolutionKernel"] = random.choice(params["STANDARD"])
+            if kernel == 'LUNG':
+                dicom["ConvolutionKernel"] = random.choice(params["LUNG"])
+            if kernel == 'B45f':
+                dicom["ConvolutionKernel"] = random.choice(params["B45f"])
+            if kernel == 'B70f':
+                dicom["ConvolutionKernel"] = random.choice(params["B70f"])
+     
+            lung_img = self.transform(image=lung_img, dicom=dicom)["image"]
+            lung_img = normalizePlanes(lung_img)
+
+        X = lung_img.reshape(49, 49, 17)
+        return  X.reshape((1, 49, 49, 17)), y_class
+
+    def __len__(self):
+        return self.data.shape[0] 
+
+train_transform = dca.Compose(
+                            [
+                                dca.NPSNoise(magnitude=params['noise_std_range'],sample_tube_current=False,p=1.0)
+                            ]
+)
+```
 
 ##  Repository Structure
 ```bash
