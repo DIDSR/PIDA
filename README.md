@@ -28,7 +28,7 @@ phases. During training, PIDA stochastically injects this correlated noise into 
 ## Function/Dataset Class for PIDA
 This repository includes the LUNA_3D_DICaugmentation class, a custom PyTorch Dataset designed for 3D lung nodule patches extracted from CT scans. It integrates PIDA by simulating realistic low-dose noise characteristics.
 ### key Features
-Loads 3D lung patches (49×49×17) from .npy files.
+Loads 3D lung patches (49×49×17) from .npy files of train_directory.
 
 Parses CT metadata such as PixelSpacing, ConvolutionKernel, and XRayTubeCurrent from the dataset annotations.
 
