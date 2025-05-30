@@ -16,9 +16,7 @@ where 𝑢 and 𝑣 are the spatial frequency coordinates. To simulate noise in 
 </p>
 where sqrt of NPS(u,v) is the amplitude derived from the measured NPS,
 φ(u, v) are random phase shifts uniformly sampled from [0, 2π],
-F⁻¹ denotes the inverse Fourier transform.
-
-This approach ensures that the noise introduced into each training sample retains the same frequency characteristics (texture and granularity) as clinically acquired low-dose CT images.
+F⁻¹ denotes the inverse Fourier transform. This approach ensures that the noise introduced into each training sample retains the same frequency characteristics (texture and granularity) as clinically acquired low-dose CT images.
 
 During training, PIDA stochastically injects this correlated noise into images with varying magnitudes (noise standard deviation in the range [1, 5]) to emulate the noise conditions found in scans with different dose exposures (e.g., 20–80 mAs). By augmenting the training set in this physics-informed manner, PIDA improves generalizability and robustness of convolutional neural networks (CNNs) across CT datasets acquired with different radiation dose levels.
 
