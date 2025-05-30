@@ -94,6 +94,15 @@ print('saved train configuration!')
 shuffle_dataset = True
 
 # load data
+# Preprocessing
+# The data_preprocessing/preprocessing.py script was used to extract lung nodule patches 
+# of size 49×49×17 from the original CT scans. 
+# The extracted patches were saved as .npy files.
+
+# The full directory paths for these patches were stored in a CSV file named high_dose_train.csv.
+root_dir = "../data/49x49x17"
+train_data = pd.read_csv(root_dir + "/train_csv_files/high_dose_train.csv")
+
 root_dir = "../data/49x49x17"
 train_data = pd.read_csv(root_dir + "/train_csv_files/high_dose_train.csv")
 
