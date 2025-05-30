@@ -9,7 +9,7 @@ PIDA is a method developed to simulate realistic low-dose CT noise based on imag
   <img src="figures/radial.png" alt="Example Image" width="200"/>
 </p>
 
-where 𝑢 and 𝑣 are the spatial frequency coordinates. To simulate noise in the spatial domain, PIDA generates a noise field by randomizing phase information and applying an inverse Fourier transform:
+where 𝑢 and 𝑣 are the spatial frequency coordinates. To simulate noise in the spatial domain, PIDA generates noise by randomizing phase information and applying an inverse Fourier transform:
 <p align="center">
   <img src="figures/fourier.png" alt="Example Image" width="400"/>
 </p>
