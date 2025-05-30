@@ -100,7 +100,7 @@ train_transform = dca.Compose(
 PIDA/
 ├── figures/                  # Visualizations and final result plots
 ├── annotations/              # Required for preprocessing nodules
-├── data_preprocessing/       # Python script for train-test csv files generation
+├── data_preprocessing/       # Python script for 49x49x17 size of Nodule, and Non-Nodule patch generation as .npy using annotation file from LUNA16 challenge
 ├── src/                      # Core Python scripts for train and test
 │   ├── baseline_train.py     # Train CNN only on High Dose (HD) CT images of LIDC dataset
 │   ├── baseline_test.py      # Test trained baseline on HD, Low-Dose (LD), and Standard-Dose (SD) CT images
