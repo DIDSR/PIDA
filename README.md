@@ -6,11 +6,14 @@ lower dose exposure. We applied PIDA in training a neural network designed to re
 lung nodule detection performance on low-dose CT scans.
 
 Physics-Informed Data Augmentation (PIDA) is a method developed to simulate realistic low-dose CT noise based on imaging physics principles. Unlike conventional augmentation strategies that add uncorrelated Gaussian noise, PIDA injects spatially correlated noise into CT images to closely mimic the noise texture seen in clinical low-dose acquisitions. PIDA utilizes Noise Power Spectrum (NPS) profiles extracted from CT DICOM metadata to model noise accurately. Assuming radial symmetry, the two-dimensional NPS is calculated as:\
-r = sqrt(u^2 + v^2)\
+![Equation r](images/equation_r.png)
+
+
+
 
 where 𝑢 and 𝑣 are the spatial frequency coordinates. To simulate noise in the spatial domain, PIDA generates a noise field by randomizing phase information and applying an inverse Fourier transform:\
-N(x, y) = F⁻¹{ sqrt(NPS(u, v)) × exp(j * φ(u, v)) }\
-where:\ 
+![Equation N(x,y)](images/equation_nxy.png)
+where 
 sqrt(NPS(u, v)) is the amplitude derived from the measured NPS,\
 
 φ(u, v) are random phase shifts uniformly sampled from [0, 2π],\
