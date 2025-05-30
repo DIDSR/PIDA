@@ -39,6 +39,7 @@ Applies NPS-based noise augmentation using the DICaugment library, injecting spa
 Normalizes the augmented 3D volume before returning the sample.
 
 ```bash
+import dicaugment as dca 
 class LUNA_3D_DICaugmentation(Dataset):
     def __init__(self, data,transform=None):
         self.data = data
