@@ -14,7 +14,7 @@ where 𝑢 and 𝑣 are the spatial frequency coordinates. To simulate noise in 
 <p align="center">
   <img src="figures/fourier.png" alt="Example Image" width="400"/>
 </p>
-where ![Equation r](images/NPS.png) is the amplitude derived from the measured NPS,
+where ![Equation r](figures/NPS.png) is the amplitude derived from the measured NPS,
 φ(u, v) are random phase shifts uniformly sampled from [0, 2π],
 F⁻¹ denotes the inverse Fourier transform.
 
