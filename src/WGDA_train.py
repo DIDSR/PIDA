@@ -16,7 +16,6 @@ import datetime
 import pandas as pd
 import time, copy
 from models2_pytorch import CNNT_3D
-from vgg_pytorch import vgg11
 from dataloaders_pytorch import  LUNA_Dataset_3D
 from train_tools_fl import train_model,write_csv,write_submission_file
 from noduleCADEvaluationLUNA16 import collect,evaluateCAD
