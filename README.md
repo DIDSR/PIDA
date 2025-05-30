@@ -17,9 +17,7 @@ where sqrt of NPS(u,v) is the amplitude derived from the measured NPS,
 φ(u, v) are random phase shifts,
 F⁻¹ denotes the inverse Fourier transform. This approach spreads the noise
 amplitude across the phase spectrum to ensure the noise has correct amplitude and random
-phases.
-
-During training, PIDA stochastically injects this correlated noise into images with varying magnitudes (noise standard deviation in the range [1, 5]) to emulate the noise conditions found in scans with different dose exposures (e.g., 20–80 mAs). By augmenting the training set in this physics-informed manner, PIDA improves generalizability and robustness of convolutional neural networks (CNNs) across CT datasets acquired with different radiation dose levels.
+phases. During training, PIDA stochastically injects this correlated noise into images with varying magnitudes (noise standard deviation in the range [1, 5]) to emulate the noise conditions found in scans with different dose exposures (e.g., 20–80 mAs). By augmenting the training set in this physics-informed manner, PIDA improves generalizability and robustness of convolutional neural networks (CNNs) across CT datasets acquired with different radiation dose levels.
 
 ## Visualization of Nodule after PIDA
 <p align="center">
