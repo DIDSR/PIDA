@@ -16,7 +16,6 @@ import datetime
 import pandas as pd
 import time, copy
 from models2_pytorch import CNNT_3D
-from vgg_pytorch import vgg11
 from dataloaders_pytorch import  LUNA_Dataset_3D
 from train_tools_fl import train_model,write_csv,write_submission_file
 from noduleCADEvaluationLUNA16 import collect,evaluateCAD
@@ -87,7 +86,7 @@ shuffle_dataset = True
 
 # load data
 root_dir = "../data/49x49x17"
-train_data = pd.read_csv(root_dir + "/train_csv_files/HU_data/high_dose_unnorm_train.csv")
+train_data = pd.read_csv(root_dir + "/train_csv_files/high_dose_unnorm_train.csv")
 
 # IF 3-D DATASET
 train_dataset = LUNA_3D_baseline(train_data)
