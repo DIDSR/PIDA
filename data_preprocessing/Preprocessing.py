@@ -12,25 +12,23 @@ import copy
 from scipy.io import savemat
 
 # This script extracts patches, augment nodules and make the files ready for deep learning algorithm. 
-# Please take a look at the section section (2.1) provided in the Tutorial (raida/shamidian/mehdi/Tutorial.docx).
 # The script contians four section, each of which activated by a specific value of the variable "funtion"
 # These sections are: 1) extract patches, 2) augment nodules, 2) crop the samples, 3) resize the samples to uniform voxel space, 4) visualizing the patches.
-# The result patches will be saved at '/raida/shamidian/mehdi/patches/'. This directory can be changed at the 
+# The result patches will be saved at '../patches/'. This directory can be changed at the 
 # end of crop volume section. Other import parameter of the script are defined as follow:
 
-dir_prefix = '/home/moktari.mostofa/Moktari/Luna_Scans/3D_Augmentation_Train/spring_2024/scans_June'  # directory where Luna scans are located.
+dir_prefix = '../scans'  # directory where Luna scans are located.
 # patch_sizeB = [121, 121, 25]  # patch size to extract nodule volumes (selected such that nodule is included inside ROI after augmentation).
 # This size is used only to extract patches from annotation.csv file (positive samples).
 # If patch_size = (x,x,25), the value for patch_sizeB should be (x*sqrt(2),x*sqrt(2),25) to make sure the positive samples
 # will fit inside the ROI after augmentation.
-#patch_size = [91, 91, 25]  # patch size to extract negative samples, since negative samples are not subjected to augmentation (e.g. 45 degrees rotation)
 patch_size = [49, 49, 17]
 patch_sizeB = [49, 49, 17]
 dest_res = [0.625, 0.625, 2]  # uniform resolution along each axis
 crop_size = [32, 32, 10]  # the size of final patches (in voxel space)
 function = 0  # it determines which action should be done.  0: extract all patches from raw data by reading candidate csv file.
-output_dir = "/home/moktari.mostofa/Moktari/Luna_Scans/3D_Augmentation_Train/spring_2024/patches_June/"
-annotation_dir = "/gpfs_projects/moktari.mostofa/Fall_2023/LUNA2016_challenge/LUNA16_Classification/Spring_2024/Train_DICAugmentation/annotations/"
+output_dir = "../patches/"
+annotation_dir = "../annotations/"
 # 1: Augment the positive samples
 # 2: crop the samples (all samples including negatives and positives, and augmented samples)
 # 3: resize the crop sized to have 48x48x16 dimension in voxel space.
