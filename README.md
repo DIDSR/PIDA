@@ -34,6 +34,7 @@ PIDA/
 ```
 ## How to Run
 We used virtual environment. Create an environment using packages in requirements.txt file.
+This code was tested on **Python 3.11.4**.
  Install required Python packages:
    ```bash
    pip install -r requirements.txt
